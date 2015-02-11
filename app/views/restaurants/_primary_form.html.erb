@@ -1,0 +1,14 @@
+<%= form_for(@restaurant) do |f| %>
+
+<!--Error Message-->
+
+<!--Form-->
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
