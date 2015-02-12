@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_email(params[:email])
     if 
-      user && user.authenticase(params[:password])
+      user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to restaurants_path, :notice => "You have succesfully logged in."
       else
