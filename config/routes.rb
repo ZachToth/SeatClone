@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
 
-  get '/restaurants/results', to: 'restaurants#results'
+  get '/restaurants/search', to: 'restaurants#search'
   
   resources :restaurants do
     resources :reservations
