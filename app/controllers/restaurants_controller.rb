@@ -5,8 +5,14 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all
   end
 
-  def results
+  def search
     @restaurants = Restaurant.all
+
+    query = "%#{params[:query].downcase}%"
+
+    @results = [] 
+    @results += @restaurants.where(["name like ?", query])
+    @results += @restaurants.where(["cuisine like ?", query])
   end
 
   def show
