@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20150212220046) do
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "cuisine"
   end
 
   create_table "users", force: :cascade do |t|

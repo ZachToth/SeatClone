@@ -1,0 +1,15 @@
+<%= render "search_form" %>
+
+<% if @results.empty? %>
+	No results found!
+<% else %>
+	<ul>
+	  <% @results.each do |restaurant| %>
+	    <li>  
+	      <%= link_to highlight(restaurant.name, params[:query]), restaurant_path(restaurant.id) %> 
+	    </li> 
+	  <% end %>
+	</ul>
+<% end %>
+
+<br><%= link_to "Back to Homepage", restaurants_path %> 
