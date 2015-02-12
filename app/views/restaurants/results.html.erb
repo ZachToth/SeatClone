@@ -1,0 +1,10 @@
+<% results_array = [] %>
+<% restaurant.each do |restaurant| %>
+	<% if restaurant.name.include?(params[:name]) %>
+	<% results_array << restaurant %>
+	<% end %>
+<% end %>
+
+<% results_array.each do |restaurant| %>
+<%= link_to "#{restaurant.name}" restaurant_path(restaurant.id) %>  
+<% end %>
