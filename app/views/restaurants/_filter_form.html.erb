@@ -1,0 +1,19 @@
+<%= form_tag restaurants_results_path, method: :get do %>
+
+
+<!--Error Message Goes here-->
+
+  <%= label_tag(:party_size, "Search for:") %>
+  <%= select_tag :party_size, 
+    "<option>1 Person</option>
+    <option>2 People</option>
+    <option>3 People</option>
+    <option>4 People</option>
+    <option>5 People</option>
+    <option>6 People</option>".html_safe %>
+  <%= label_tag(:query, "Search for:") %>
+  <%= text_field_tag(:query) %>
+  <%= submit_tag("Search") %>
+
+<% end %>
+
