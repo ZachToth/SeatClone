@@ -4,6 +4,7 @@ class RestaurantsController < ApplicationController
   end
 
   def results
+    @restaurants = Restaurant.all
   end
 
   def show
