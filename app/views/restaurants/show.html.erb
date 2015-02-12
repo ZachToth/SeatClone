@@ -1,0 +1,21 @@
+<h1><%= @restaurant.name %></h1>
+<h2>Description</h2>
+<p><%= @restaurant.description %></p>
+
+<% hours = @restaurant.openhours.split("-") %>
+<% open = hours[0] %>
+<% close = hours[1] %>
+<p>This restaurant is open from <%= open %> to <%= close %> every day.</p>
+
+<h2>Make a reservation below</h2>
+<%= form_for([@restaurant, @reservation]) do |f| %>
+	<div>
+		<%= f.label :time_date %>
+		<%= f.datetime_field :time_date%>
+	</div>
+	<div>
+		<%= f.label :party_size %>
+		<%= f.number_field :party_size %>
+	</div>
+	<%= f.submit %>
+<% end %>

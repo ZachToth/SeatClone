@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   get '/', to: 'restaurants#index'
-  resources :restaurants
   resources :users
+  
+  resources :restaurants do
+    resources :reservations
+  end
 
   #get "restaurants/results" 
 
