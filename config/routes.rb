@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get '/', to: 'restaurants#index'
   resources :users
   resources :sessions
+
+  get '/restaurants/results', to: 'restaurants#results'
   
   resources :restaurants do
     resources :reservations
