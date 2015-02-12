@@ -1,14 +1,9 @@
-<%= form_for(@restaurant) do |f| %>
+<%= form_tag("restaurants", method: "get") do %>
 
-<!--Error Message-->
+<!--Error Message Goes here-->
 
-<!--Form-->
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
 
 <% end %>
