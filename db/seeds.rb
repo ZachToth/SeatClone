@@ -6,14 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #  Restaurant.all.destroy()
-
-Restaurant.create([
-	{name: "Swiss Chalet", openhours: "13-23", location: "Everywhere", description: "Saucy"},
-	{name: "Marben", openhours: "14-24", location: "King West", description: "Fancy"},
-	{name: "Dumpling House", openhours: "12-22", location: "China Town", description: "Dumply"},
-	{name: "King Noodle", openhours: "12-24", location: "China Town", description: "Noodly"},
-	{name: "Fancy Franks", openhours: "14-21", location: "Everywhere", description: "Franky"},
-])
+puts "\nCreating Restaurants"
+50.times do
+	Restaurant.create!(
+		name:      Faker::Company.name,
+		openhours: ["12-24", "10-20", "11-23", "10-24", "8-18"].sample,
+		location: ["King West", "King East", "China Town", "North York", "Liberty Village",].sample,
+		description: Faker::Hacker.say_something_smart,
+		cuisine: ["Chinese", "Thai", "Vietnamese", "Continental", "Mexican", "French", "Asian Fusion"].sample,
+	)
+	print "|"
+end
 
 puts "\nCreating users"
 50.times do
