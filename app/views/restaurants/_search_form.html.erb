@@ -2,10 +2,8 @@
 
 
 <!--Error Message Goes here-->
-  <%= label_tag(:query, "Search for:") %>
-  <%= text_field_tag(:query) %>
-  <%= label_tag(:location, "Search for:") %>
-  <%= text_field_tag(:location) %>
+  <%= text_field_tag(:query, nil, placeholder: 'Search by name or cuisine') %>
+  <%= text_field_tag(:location, nil, placeholder: 'Location') %>
   <%= submit_tag("Search") %>
 
 <% end %>
