@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # Routes root to index action in restaurants 
   get '/', to: 'restaurants#index'
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show, :edit]
   resources :sessions, only: [:new, :create, :destroy]
 
   get '/restaurants/search', to: 'restaurants#search'

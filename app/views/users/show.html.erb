@@ -1,0 +1,7 @@
+<h1><%= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}"%></h1>
+<p>Email: <%= @user.email %></p>
+<p><%= link_to("Edit User Information", edit_user_path) %></p>
+
+<% @user.reservations.each do |reservation| %>
+	<h5>Reservation:</h5><br>Restaurant Name: <%= reservation.restaurant.name %> <br>Date: <%= reservation.date %> <br>Time:<%= reservation.time %><br><br><br>
+<% end %>

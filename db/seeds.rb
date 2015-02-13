@@ -14,3 +14,27 @@ Restaurant.create([
 	{name: "King Noodle", openhours: "12-24", location: "China Town", description: "Noodly"},
 	{name: "Fancy Franks", openhours: "14-21", location: "Everywhere", description: "Franky"},
 ])
+
+puts "\nCreating users"
+50.times do
+	name = Faker::Name.name.split
+	User.create!(
+		first_name: 	name.first,
+		last_name: 		name.last,
+		email: 				Faker::Internet.email,
+		password: 		"asdf;lkj"
+	)
+	print "|"
+end
+
+puts "\nCreating reservations"
+1000.times do
+	Reservation.create!(
+		user_id: 				User.all.sample.id,
+		restaurant_id: 	Restaurant.all.sample.id,
+		party_size: 		[1,3,4,5,10,15].sample,
+		date: 					rand(10.days).seconds.from_now,
+		time: 					[2,3,4,5,5,6,7,9,].sample
+	)
+	print "|"
+end
