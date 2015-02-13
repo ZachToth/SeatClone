@@ -1,0 +1,12 @@
+body {
+	max-width: 800px;
+	margin: auto;
+}
+
+main {
+	margin-top: 20px;
+}
+
+input {
+	max-width: 200px;
+}
