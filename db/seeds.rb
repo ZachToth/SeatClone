@@ -34,7 +34,7 @@ puts "\nCreating reservations"
 		restaurant_id: 	Restaurant.all.sample.id,
 		party_size: 		[1,3,4,5,10,15].sample,
 		date: 					rand(10.days).seconds.from_now,
-		time: 					[2,3,4,5,5,6,7,9,]
+		time: 					[2,3,4,5,5,6,7,9,].sample
 	)
 	print "|"
 end
