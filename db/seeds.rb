@@ -14,6 +14,7 @@ puts "\nCreating Restaurants"
 		location: ["King West", "King East", "China Town", "North York", "Liberty Village",].sample,
 		description: Faker::Hacker.say_something_smart,
 		cuisine: ["Chinese", "Thai", "Vietnamese", "Continental", "Mexican", "French", "Asian Fusion"].sample,
+		capacity: [10, 15, 20, 25, 30, 35, 40, 45, 50].sample 
 	)
 	print "|"
 end
