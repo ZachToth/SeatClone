@@ -27,13 +27,12 @@ before_filter :ensure_logged_in, :load_restaurant
     date = params[:reservation][:date]
     time = params[:reservation][:time].to_i
     party_size = params[:reservation][:party_size].to_i
+    # Select reservations on the same date and time
     reservations = @restaurant.reservations.where("date = ? AND time = ?", date, time)
-    # bindings.pry
     seats_taken = 0
     reservations.each do |reservation|
       seats_taken += reservation.party_size.to_i
     end
-    bindings.pry
     @restaurant.capacity < seats_taken + party_size
   end
 
