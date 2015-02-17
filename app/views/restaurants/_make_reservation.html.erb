@@ -1,0 +1,23 @@
+<h2>Make a reservation below</h2>
+<p><%= @restaurant.capacity %> total seats available.</p>
+<%= form_for([@restaurant, @reservation]) do |f| %>
+  <% f.hidden_field :user_id, :value => :user_id %>
+  <div>
+    <%= f.label :date %>
+    <%= f.date_field(:date, value: Date.today) %>
+  </div>
+  <div>
+    <%= f.label :time %>
+    <% if Time.now.hour > open.to_i %>
+      <% default_time = Time.now.hour %>
+    <% else %>
+      <% default_time = open %>
+    <% end %>
+    <%= f.time_field(:time, value: "#{default_time}:00", hour_step: 1) %>
+  </div>
+  <div>
+    <%= f.label :party_size %>
+    <%= f.number_field(:party_size, value: 2, in: 1..20) %>
+  </div>
+  <%= f.submit %>
+<% end %>
