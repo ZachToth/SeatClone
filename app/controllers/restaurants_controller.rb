@@ -8,10 +8,13 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all
 
     query = "%#{params[:query].downcase}%"
+    location = "%#{params[:location].downcase}%"
 
     @results = [] 
     @results += @restaurants.where(["name like ?", query])
     @results += @restaurants.where(["cuisine like ?", query])
+    @results += @restaurants.where(["location like ?", location])
+
   end
 
   def show
