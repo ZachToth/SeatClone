@@ -13,8 +13,13 @@ class RestaurantsController < ApplicationController
     @results = [] 
     @results += @restaurants.where(["name like ?", query])
     @results += @restaurants.where(["cuisine like ?", query])
-    @results += @restaurants.where(["location like ?", location])
 
+    if location
+      location_results = []
+      location_results += @restaurants.where(["location like ?", location])
+      query_results = @results
+      @results = location_results & query_results
+    end
   end
 
   def show
