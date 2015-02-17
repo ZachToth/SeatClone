@@ -17,7 +17,12 @@
 	</div>
   <div>
     <%= f.label :time %>
-    <%= f.time_field(:time, value: "#{Time.now.hour}:#{Time.now.min}") %>
+		<% if Time.now.hour > open.to_i %>
+    	<% default_time = Time.now.hour %>
+    <% else %>
+    	<% default_time = open %>
+    <% end %>
+    <%= f.time_field(:time, value: "#{default_time}:00", hour_step: 1) %>
   </div>
 	<div>
 		<%= f.label :party_size %>
