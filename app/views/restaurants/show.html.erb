@@ -6,21 +6,7 @@
 <% open = hours[0] %>
 <% close = hours[1] %>
 <p>This restaurant is open from <%= open %> to <%= close %> every day.</p>
+<p>Max guests: <%= @restaurant.capacity %></p>
+<p>Located in the <%= @restaurant.location %> neighborhood.</p>
 
-<h2>Make a reservation below</h2>
-<%= form_for([@restaurant, @reservation]) do |f| %>
-  <% f.hidden_field :user_id, :value => :user_id %>
-	<div>
-		<%= f.label :date %>
-		<%= f.date_field :date %>
-	</div>
-  <div>
-    <%= f.label :time %>
-    <%= f.time_field :time %>
-  </div>
-	<div>
-		<%= f.label :party_size %>
-		<%= f.number_field :party_size %>
-	</div>
-	<%= f.submit %>
-<% end %>
+<%= render 'make_reservation' %>
