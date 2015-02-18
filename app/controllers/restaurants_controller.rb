@@ -24,6 +24,11 @@ class RestaurantsController < ApplicationController
 
   def show
   	@restaurant = Restaurant.find(params[:id])
-      @reservation = @restaurant.reservations.build
+    @reservation = @restaurant.reservations.build
+
+    @available_slots = @restaurant.opening_hour..@restaurant.closing_hour.map do |hour|
+      @restaurant.is_available(date_time, party_size)
+    end
+
   end
 end
