@@ -2,11 +2,4 @@
 <h2>Description</h2>
 <p><%= @restaurant.description %></p>
 
-<% hours = @restaurant.openhours.split("-") %>
-<% open = hours[0] %>
-<% close = hours[1] %>
-<p>This restaurant is open from <%= open %> to <%= close %> every day.</p>
-<p>Max guests: <%= @restaurant.capacity %></p>
-<p>Located in the <%= @restaurant.location %> neighborhood.</p>
-
 <%= render 'make_reservation' %>
