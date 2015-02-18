@@ -13,4 +13,12 @@ class Restaurant < ActiveRecord::Base
     capacity > seats_taken + party_size.to_i
   end
 
+  def open
+    openhours.split('-')[0].to_i
+  end
+
+  def close
+    openhours.split('-')[1].to_i
+  end
+
 end
