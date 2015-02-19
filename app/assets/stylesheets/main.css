@@ -1,0 +1,29 @@
+body {
+	max-width: 800px;
+	margin: auto;
+  background-image: url("background_image.jpg");
+}
+
+main {
+  background-color: rgba(200, 230, 230, 0.8);;
+	margin-top: 20px;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+input {
+	max-width: 200px;
+}
+
+ul {
+  padding: 20px;
+}
+
+li {
+  padding: 5px;
+  /*background: #00F;*/
+}
+
+.restaurant_list li {
+  list-style: none;
+}
