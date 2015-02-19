@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-#  Restaurant.all.destroy()
+Restaurant.destroy_all
 puts "\nCreating Restaurants"
 50.times do
 	Restaurant.create!(
@@ -31,12 +31,13 @@ puts "\nCreating users"
 	print "|"
 end
 
+Reservation.destroy_all
 puts "\nCreating reservations"
-1000.times do
+2.times do
 	Reservation.create!(
 		user_id: 				User.all.sample.id,
 		restaurant_id: 	Restaurant.all.sample.id,
-		party_size: 		[1,3,4,5,10,15].sample,
+		party_size: 		[1,3,4,5].sample,
 		date: 					rand(10.days).seconds.from_now,
 		time: 					[2,3,4,5,5,6,7,9,].sample
 	)
